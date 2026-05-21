@@ -90,6 +90,8 @@ document.getElementById(
 'bgmusic'
 );
 
+/* restore saved time */
+
 const savedTime =
 localStorage.getItem(
 'musicTime'
@@ -102,21 +104,44 @@ parseFloat(savedTime);
 
 }
 
-function startMusic(){
+/* restore play state */
 
-music.play();
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
 
 }
 
-document.body.addEventListener(
+/* start music after first click */
+
+document.addEventListener(
 
 'click',
 
-startMusic,
+()=>{
+
+music.play();
+
+localStorage.setItem(
+
+'musicPlaying',
+
+'true'
+
+);
+
+},
 
 {once:true}
 
 );
+
+/* save progress */
 
 setInterval(()=>{
 
@@ -128,23 +153,8 @@ music.currentTime
 
 );
 
-},1000);
+},500);
 
-window.addEventListener(
-
-'beforeunload',
-
-()=>{
-
-localStorage.setItem(
-
-'musicTime',
-
-music.currentTime
-
-);
-
-});
 
 </script>  
 
