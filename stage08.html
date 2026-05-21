@@ -130,6 +130,77 @@ Continue
 
 </a>
 
+<audio id="bgmusic" loop>
+
+<source src="cornfield.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+'bgmusic'
+);
+
+const savedTime =
+localStorage.getItem(
+'musicTime'
+);
+
+if(savedTime){
+
+music.currentTime =
+parseFloat(savedTime);
+
+}
+
+function startMusic(){
+
+music.play();
+
+}
+
+document.body.addEventListener(
+
+'click',
+
+startMusic,
+
+{once:true}
+
+);
+
+setInterval(()=>{
+
+localStorage.setItem(
+
+'musicTime',
+
+music.currentTime
+
+);
+
+},1000);
+
+window.addEventListener(
+
+'beforeunload',
+
+()=>{
+
+localStorage.setItem(
+
+'musicTime',
+
+music.currentTime
+
+);
+
+});
+
+</script>  
+
 </body>
 
 </html>
