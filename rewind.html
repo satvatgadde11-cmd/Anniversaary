@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+YEAR REWIND
+
+</title>
+
+<style>
+
+body{
+
+margin:0;
+
+background:black;
+
+overflow:hidden;
+
+font-family:Arial;
+
+}
+
+.title{
+
+position:absolute;
+
+top:40px;
+
+width:100%;
+
+text-align:center;
+
+color:white;
+
+z-index:20;
+
+}
+
+.title h1{
+
+font-size:60px;
+
+margin-bottom:10px;
+
+}
+
+.title p{
+
+font-size:20px;
+
+}
+
+.slideshow{
+
+position:relative;
+
+width:100%;
+
+height:100vh;
+
+}
+
+.slideshow img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+
+animation:fade 60s infinite;
+
+}
+
+/* Photo timing */
+
+.slideshow img:nth-child(1){animation-delay:0s;}
+.slideshow img:nth-child(2){animation-delay:4s;}
+.slideshow img:nth-child(3){animation-delay:8s;}
+.slideshow img:nth-child(4){animation-delay:12s;}
+.slideshow img:nth-child(5){animation-delay:16s;}
+.slideshow img:nth-child(6){animation-delay:20s;}
+.slideshow img:nth-child(7){animation-delay:24s;}
+.slideshow img:nth-child(8){animation-delay:28s;}
+.slideshow img:nth-child(9){animation-delay:32s;}
+.slideshow img:nth-child(10){animation-delay:36s;}
+.slideshow img:nth-child(11){animation-delay:40s;}
+.slideshow img:nth-child(12){animation-delay:44s;}
+.slideshow img:nth-child(13){animation-delay:48s;}
+.slideshow img:nth-child(14){animation-delay:52s;}
+.slideshow img:nth-child(15){animation-delay:56s;}
+
+@keyframes fade{
+
+0%{
+
+opacity:0;
+
+transform:scale(1);
+
+}
+
+8%{
+
+opacity:1;
+
+}
+
+22%{
+
+opacity:1;
+
+transform:scale(1.08);
+
+}
+
+30%{
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="title">
+
+<h1>
+
+YEAR REWIND
+
+</h1>
+
+<p>
+
+1 year.
+
+Infinite moments.
+
+</p>
+
+</div>
+
+<div class="slideshow">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+<img src="photo8.jpg">
+<img src="photo9.jpg">
+<img src="photo10.jpg">
+<img src="photo11.jpg">
+<img src="photo12.jpg">
+<img src="photo13.jpg">
+<img src="photo14.jpg">
+<img src="photo15.jpg">
+
+</div>
+
+</body>
+
+</html>
