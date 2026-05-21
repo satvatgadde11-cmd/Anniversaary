@@ -26,6 +26,7 @@ min-height:100vh;
 margin:0;
 
 ">
+
 <div style="
 
 background:
@@ -38,6 +39,8 @@ border-radius:20px;
 max-width:900px;
 
 margin:auto;
+
+text-align:center;
 
 ">
 
@@ -65,14 +68,88 @@ THE SG UNIVERSE
 
 </h2>
 
-<a href="stage01.html">
 <button onclick="startJourney()">
 
 ✨ Start Journey
 
 </button>
 
-</a>
+<audio id="bgmusic" loop>
+
+<source src="cornfield.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+'bgmusic'
+);
+
+/* restore saved time */
+
+const savedTime =
+localStorage.getItem(
+'musicTime'
+);
+
+if(savedTime){
+
+music.currentTime =
+parseFloat(savedTime);
+
+}
+
+/* restore play state */
+
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
+
+}
+
+/* save music position */
+
+setInterval(()=>{
+
+localStorage.setItem(
+
+'musicTime',
+
+music.currentTime
+
+);
+
+},500);
+
+/* start journey */
+
+function startJourney(){
+
+music.play();
+
+localStorage.setItem(
+
+'musicPlaying',
+
+'true'
+
+);
+
+window.location.href=
+'stage01.html';
+
+}
+
+</script>
+
+</div>
 
 </body>
 
