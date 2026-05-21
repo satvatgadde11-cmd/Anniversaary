@@ -66,10 +66,9 @@ THE SG UNIVERSE
 </h2>
 
 <a href="stage01.html">
+<button onclick="startJourney()">
 
-<button onclick="startMusic()">
-
-Start Journey ✨
+✨ Start Journey
 
 </button>
 
@@ -87,6 +86,8 @@ document.getElementById(
 'bgmusic'
 );
 
+/* restore saved time */
+
 const savedTime =
 localStorage.getItem(
 'musicTime'
@@ -99,21 +100,44 @@ parseFloat(savedTime);
 
 }
 
-function startMusic(){
+/* restore play state */
 
-music.play();
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
 
 }
 
-document.body.addEventListener(
+/* start music after first click */
+
+document.addEventListener(
 
 'click',
 
-startMusic,
+()=>{
+
+music.play();
+
+localStorage.setItem(
+
+'musicPlaying',
+
+'true'
+
+);
+
+},
 
 {once:true}
 
 );
+
+/* save progress */
 
 setInterval(()=>{
 
@@ -125,23 +149,22 @@ music.currentTime
 
 );
 
-},1000);
+},500);
 
-window.addEventListener(
+</script>
+  function startJourney(){
 
-'beforeunload',
-
-()=>{
-
-localStorage.setItem(
-
-'musicTime',
-
-music.currentTime
-
+const music =
+document.getElementById(
+'bgmusic'
 );
 
-});
+music.play();
+
+window.location.href=
+'stage01.html';
+
+}
 
 </script>
 
