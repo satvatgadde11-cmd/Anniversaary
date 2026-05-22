@@ -70,7 +70,7 @@ THE SG UNIVERSE
 
 <a href="stage01.html">
 
-<button>
+<button onclick="startMusic()">
 
 ✨ Start Journey
 
@@ -79,6 +79,24 @@ THE SG UNIVERSE
 </a>
 
 </div>
+
+<script src="music.js"></script>  
+
+<script>
+
+function startMusic(){
+
+localStorage.setItem(
+
+"musicPlaying",
+
+"true"
+
+);
+
+}
+
+</script>
 
 <script src="music.js"></script>  
 
