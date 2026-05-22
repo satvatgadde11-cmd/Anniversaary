@@ -26,6 +26,7 @@ min-height:100vh;
 margin:0;
 
 ">
+
 <div style="
 
 background:
@@ -39,16 +40,17 @@ max-width:900px;
 
 margin:auto;
 
+text-align:center;
+
 ">
-
-
-<div>
 
 <h1>
 
 THE END???
 
-  NAAHHH, NEVER!
+<br><br>
+
+NAAHHH, NEVER!
 
 </h1>
 
@@ -84,6 +86,8 @@ I found home in you.
 
 Thank you for Year One,
 
+<br><br>
+
 Guggi ❤️
 
 </h2>
@@ -101,6 +105,8 @@ YEAR TWO LOCKED 🔒
 Coming Soon...
 
 </p>
+
+</div>
 
 <audio id="bgmusic" loop>
 
@@ -127,21 +133,16 @@ parseFloat(savedTime);
 
 }
 
-function startMusic(){
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
 
-music.play();
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
 
 }
-
-document.body.addEventListener(
-
-'click',
-
-startMusic,
-
-{once:true}
-
-);
 
 setInterval(()=>{
 
@@ -153,27 +154,9 @@ music.currentTime
 
 );
 
-},1000);
+},500);
 
-window.addEventListener(
-
-'beforeunload',
-
-()=>{
-
-localStorage.setItem(
-
-'musicTime',
-
-music.currentTime
-
-);
-
-});
-
-</script>  
-
-</div>
+</script>
 
 </body>
 
