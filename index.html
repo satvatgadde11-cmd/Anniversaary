@@ -87,7 +87,7 @@ document.getElementById(
 'bgmusic'
 );
 
-/* restore saved time */
+/* restore music time */
 
 const savedTime =
 localStorage.getItem(
@@ -114,7 +114,7 @@ music.play().catch(()=>{});
 
 }
 
-/* save music position */
+/* save current music position */
 
 setInterval(()=>{
 
@@ -132,9 +132,7 @@ music.currentTime
 
 function startJourney(){
 
-music.play()
-
-.then(()=>{
+music.play();
 
 localStorage.setItem(
 
@@ -144,16 +142,14 @@ localStorage.setItem(
 
 );
 
+/* small delay */
+
+setTimeout(()=>{
+
 window.location.href=
 'stage01.html';
 
-})
-
-.catch(error=>{
-
-console.log(error);
-
-});
+},500);
 
 }
 
