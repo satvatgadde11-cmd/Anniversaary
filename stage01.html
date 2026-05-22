@@ -77,8 +77,58 @@ Continue
 
 </a>
 
-<script src="music.js"></script>
 </div>
+
+<audio id="bgmusic" loop>
+
+<source src="cornfield.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+'bgmusic'
+);
+
+const savedTime =
+localStorage.getItem(
+'musicTime'
+);
+
+if(savedTime){
+
+music.currentTime =
+parseFloat(savedTime);
+
+}
+
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
+
+}
+
+setInterval(()=>{
+
+localStorage.setItem(
+
+'musicTime',
+
+music.currentTime
+
+);
+
+},500);
+
+</script>
+
 </body>
 
 </html>
