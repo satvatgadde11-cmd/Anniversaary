@@ -132,7 +132,9 @@ music.currentTime
 
 function startJourney(){
 
-music.play();
+music.play()
+
+.then(()=>{
 
 localStorage.setItem(
 
@@ -144,6 +146,14 @@ localStorage.setItem(
 
 window.location.href=
 'stage01.html';
+
+})
+
+.catch(error=>{
+
+console.log(error);
+
+});
 
 }
 
