@@ -79,38 +79,6 @@ THE SG UNIVERSE
 </a>
 </div>
 
-<audio id="bgmusic" loop>
-
-<source src="cornfield.mp3" type="audio/mpeg">
-
-</audio>
-
-<script>
-
-function startJourney(){
-
-const music =
-document.getElementById(
-'bgmusic'
-);
-
-music.play().catch(()=>{});
-
-localStorage.setItem(
-
-'musicPlaying',
-
-'true'
-
-);
-
-window.location.href=
-'stage01.html';
-
-}
-
-</script>
-
 </body>
 
 </html>
