@@ -1,50 +1,61 @@
-const audio = new Audio('cornfield.mp3');
+let audio =
+document.getElementById(
+"globalMusic"
+);
 
-audio.loop = true;
+if(!audio){
+
+audio =
+document.createElement(
+"audio"
+);
+
+audio.id =
+"globalMusic";
+
+audio.src =
+"cornfield.mp3";
+
+audio.loop =
+true;
+
+document.body.appendChild(
+audio
+);
+
+}
 
 const savedTime =
 localStorage.getItem(
-'cornfieldTime'
+"musicTime"
 );
 
 if(savedTime){
 
 audio.currentTime =
-parseFloat(savedTime);
+parseFloat(
+savedTime
+);
 
 }
 
 const wasPlaying =
 localStorage.getItem(
-'cornfieldPlaying'
+"musicPlaying"
 );
 
 if(wasPlaying==="true"){
 
-audio.play().catch(()=>{});
+audio.play()
+.catch(()=>{});
 
 }
-
-window.startMusic =
-function(){
-
-audio.play();
-
-localStorage.setItem(
-
-'cornfieldPlaying',
-
-'true'
-
-);
-
-};
 
 setInterval(()=>{
 
 localStorage.setItem(
 
-'cornfieldTime',
+"musicTime",
 
 audio.currentTime
 
