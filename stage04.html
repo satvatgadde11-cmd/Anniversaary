@@ -156,7 +156,6 @@ Continue
 </button>
 
 </a>
-
 <audio id="bgmusic" loop>
 
 <source src="cornfield.mp3" type="audio/mpeg">
@@ -170,6 +169,8 @@ document.getElementById(
 'bgmusic'
 );
 
+/* restore saved time */
+
 const savedTime =
 localStorage.getItem(
 'musicTime'
@@ -182,21 +183,20 @@ parseFloat(savedTime);
 
 }
 
-function startMusic(){
+/* play only if journey started */
 
-music.play();
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
 
 }
 
-document.body.addEventListener(
-
-'click',
-
-startMusic,
-
-{once:true}
-
-);
+/* keep saving music position */
 
 setInterval(()=>{
 
@@ -208,25 +208,10 @@ music.currentTime
 
 );
 
-},1000);
+},500);
 
-window.addEventListener(
+</script>
 
-'beforeunload',
-
-()=>{
-
-localStorage.setItem(
-
-'musicTime',
-
-music.currentTime
-
-);
-
-});
-
-</script>  
 </body>
 
 </html>
