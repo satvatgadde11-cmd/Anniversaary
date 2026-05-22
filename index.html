@@ -79,6 +79,43 @@ THE SG UNIVERSE
 </a>
 </div>
 
+<audio id="bgmusic">
+
+<source src="cornfield.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+document.querySelector(
+'button'
+).addEventListener(
+
+'click',
+
+function(){
+
+const music =
+document.getElementById(
+'bgmusic'
+);
+
+music.play();
+
+sessionStorage.setItem(
+
+'playMusic',
+
+'yes'
+
+);
+
+}
+
+);
+
+</script>  
+
 </body>
 
 </html>
