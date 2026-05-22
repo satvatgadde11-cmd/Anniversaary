@@ -79,7 +79,7 @@ THE SG UNIVERSE
 </a>
 </div>
 
-<audio id="bgmusic">
+<audio id="bgmusic" loop>
 
 <source src="cornfield.mp3" type="audio/mpeg">
 
@@ -87,20 +87,18 @@ THE SG UNIVERSE
 
 <script>
 
-document.querySelector(
-'button'
-).addEventListener(
-
-'click',
-
-function(){
-
 const music =
 document.getElementById(
 'bgmusic'
 );
 
-music.play();
+document.addEventListener(
+
+'click',
+
+function(){
+
+music.play().catch(()=>{});
 
 sessionStorage.setItem(
 
@@ -110,12 +108,14 @@ sessionStorage.setItem(
 
 );
 
-}
+},
+
+{once:true}
 
 );
 
-</script>  
-
+</script>
+  
 </body>
 
 </html>
