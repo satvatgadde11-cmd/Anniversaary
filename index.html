@@ -44,35 +44,27 @@ text-align:center;
 
 ">
 
-<h1 style="
-
-font-size:60px;
-
-margin-bottom:20px;
-
-">
+<h1>
 
 OUR UNIVERSE
 
 </h1>
 
-<h2 style="
-
-font-size:35px;
-
-margin-bottom:30px;
-
-">
+<h2>
 
 THE SG UNIVERSE
 
 </h2>
 
-<button onclick="startJourney()">
+<a href="stage01.html">
+
+<button onclick="playMusic()">
 
 ✨ Start Journey
 
 </button>
+
+</a>
 
 <audio id="bgmusic" loop>
 
@@ -82,57 +74,14 @@ THE SG UNIVERSE
 
 <script>
 
+function playMusic(){
+
 const music =
 document.getElementById(
 'bgmusic'
 );
 
-/* restore music time */
-
-const savedTime =
-localStorage.getItem(
-'musicTime'
-);
-
-if(savedTime){
-
-music.currentTime =
-parseFloat(savedTime);
-
-}
-
-/* restore play state */
-
-const shouldPlay =
-localStorage.getItem(
-'musicPlaying'
-);
-
-if(shouldPlay==="true"){
-
 music.play().catch(()=>{});
-
-}
-
-/* save current music position */
-
-setInterval(()=>{
-
-localStorage.setItem(
-
-'musicTime',
-
-music.currentTime
-
-);
-
-},500);
-
-/* start journey */
-
-function startJourney(){
-
-music.play();
 
 localStorage.setItem(
 
@@ -141,15 +90,6 @@ localStorage.setItem(
 'true'
 
 );
-
-/* small delay */
-
-setTimeout(()=>{
-
-window.location.href=
-'stage01.html';
-
-},500);
 
 }
 
