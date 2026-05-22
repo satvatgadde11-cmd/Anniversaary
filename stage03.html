@@ -89,6 +89,63 @@ Continue
 </a>
 
 </div>
+
+<audio id="bgmusic" loop>
+
+<source src="cornfield.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const music =
+document.getElementById(
+'bgmusic'
+);
+
+/* restore saved time */
+
+const savedTime =
+localStorage.getItem(
+'musicTime'
+);
+
+if(savedTime){
+
+music.currentTime =
+parseFloat(savedTime);
+
+}
+
+/* play only if journey started */
+
+const shouldPlay =
+localStorage.getItem(
+'musicPlaying'
+);
+
+if(shouldPlay==="true"){
+
+music.play().catch(()=>{});
+
+}
+
+/* keep saving music position */
+
+setInterval(()=>{
+
+localStorage.setItem(
+
+'musicTime',
+
+music.currentTime
+
+);
+
+},500);
+
+</script>
+  
 </body>
 
 </html>
